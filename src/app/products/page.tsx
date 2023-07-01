@@ -1,3 +1,4 @@
+import MeowArticle from '@/components/MeowArticle';
 import { getProducts } from '@/service/products';
 import Link from 'next/link';
 
@@ -6,11 +7,8 @@ import Link from 'next/link';
 export default async function ProductsPage() {
   // 서버 파일(DB)에 있는 제품의 리스트를 읽어와서 그걸 보여줌
   const products = await getProducts();
-  const res = await fetch('https://meowfacts.herokuapp.com', {
-    next: {revalidate: 3}
-  });
-  const data = await res.json();
-  const factText = data.data[0];
+  
+  
 
   return (<section>
     <h1>제품 소개 페이지!</h1>
@@ -21,8 +19,6 @@ export default async function ProductsPage() {
         </li>
       ))}               
     </ul>
-    <article>
-      {factText}
-    </article>
+    <MeowArticle />
     </section>)
 }
