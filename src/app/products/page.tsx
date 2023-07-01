@@ -3,16 +3,16 @@ import Link from 'next/link';
 
 
 
-export default function ProductsPage() {
+export default async function ProductsPage() {
   // 서버 파일(DB)에 있는 제품의 리스트를 읽어와서 그걸 보여줌
-  const products = getProducts();
-  
+  const products = await getProducts();
+
   return (<section>
     <h1>제품 소개 페이지!</h1>
     <ul>
-      {products.map((product, index) => (
+      {products.map(({id, name}, index) => (
         <li key={index}>
-          <Link href={`/products/${product}`}>{product}</Link>
+          <Link href={`/products/${id}`}>{name}</Link>
         </li>
       ))}
     </ul>
