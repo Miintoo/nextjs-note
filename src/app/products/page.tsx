@@ -1,7 +1,7 @@
 import { getProducts } from '@/service/products';
 import Link from 'next/link';
 
-
+export const revalidate = 3;
 
 export default async function ProductsPage() {
   // 서버 파일(DB)에 있는 제품의 리스트를 읽어와서 그걸 보여줌
@@ -14,7 +14,7 @@ export default async function ProductsPage() {
         <li key={index}>
           <Link href={`/products/${id}`}>{name}</Link>
         </li>
-      ))}
+      ))}               
     </ul>
     </section>)
 }
