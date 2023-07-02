@@ -5,6 +5,7 @@ import Link from 'next/link';
 // export const revalidate = 3;
 
 export default async function ProductsPage() {
+  throw new Error();
   // 서버 파일(DB)에 있는 제품의 리스트를 읽어와서 그걸 보여줌
   const products = await getProducts();
   
