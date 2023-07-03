@@ -1,6 +1,9 @@
 import Link from 'next/link';
 import styles from './layout.module.css';
 import { Metadata } from 'next';
+import { Open_Sans } from '@next/font/google'
+
+const sans = Open_Sans({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: '멋진 제품 사이트',
@@ -16,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={sans.className}>
       {/*
         <head /> will contain the components returned by the nearest parent
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
